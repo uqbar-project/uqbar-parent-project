@@ -1,0 +1,152 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.uqbar-project</groupId>
+	<artifactId>uqbar-parent-project</artifactId>
+	<version>1.7-SNAPSHOT</version>
+	<name>uqbar-parent-project</name>
+	<url>http://www.uqbar-project.org</url>
+	<packaging>pom</packaging>
+
+	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<uqbar.repo.url>ftp://ftp.uqbar-wiki.org</uqbar.repo.url>
+		<scm.hgServer>ssh://hg@bitbucket.org/uqbar-project</scm.hgServer>
+	</properties>
+
+	<!-- TEMPLATE FOR OTHER PROJECTS
+
+	<properties>
+		<scm.svnPath>svn/uqbar/XXXX</scm.svnPath>
+		UPDATE THIS !
+	</properties>
+
+	<scm>
+		<connection>scm:hg:${scm.hgServer}/${artifactId}</connection>
+		<developerConnection>scm:hg:${scm.hgServer}/${artifactId}</developerConnection>
+		<url>scm:hg:${scm.hgServer}/${artifactId}</url>
+	</scm>
+		-->
+
+	<scm>
+		<connection>scm:hg:${scm.hgServer}/${artifactId}</connection>
+		<developerConnection>scm:hg:${scm.hgServer}/${artifactId}</developerConnection>
+		<url>scm:hg:${scm.hgServer}/${artifactId}</url>
+	</scm>
+
+	<organization>
+		<name>Uqbar Project</name>
+		<url>http://www.uqbar-project.org</url>
+	</organization>
+
+	<distributionManagement>
+		<repository>
+			<id>uqbar-releases</id>
+			<url>${uqbar.repo.url}/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>uqbar-snapshots</id>
+			<url>${uqbar.repo.url}/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<repositories>
+		<repository>
+			<id>uqbar-wiki.org-releases</id>
+			<name>uqbar-wiki.org-releases</name>
+			<url>http://uqbar-wiki.org/mvn/releases</url>
+		</repository>
+		<repository>
+			<snapshots />
+			<id>uqbar-wiki.org-snapshots</id>
+			<name>uqbar-wiki.org-snapshots</name>
+			<url>http://uqbar-wiki.org/mvn/snapshots</url>
+		</repository>
+	</repositories>
+
+
+	<build>
+		<testOutputDirectory>target/testClasses</testOutputDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>LATEST</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>LATEST</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>attach-sources-test</id>
+						<phase>package</phase>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<inherited>true</inherited>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>LATEST</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<phase>package</phase>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+
+		<extensions>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh</artifactId>
+				<version>LATEST</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ssh-external</artifactId>
+				<version>LATEST</version>
+			</extension>
+			<extension>
+				<groupId>org.apache.maven.wagon</groupId>
+				<artifactId>wagon-ftp</artifactId>
+				<version>LATEST</version>
+			</extension>
+		</extensions>
+	</build>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>com.googlecode.maven-overview-plugin</groupId>
+				<artifactId>maven-overview-plugin</artifactId>
+				<version>LATEST</version>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
