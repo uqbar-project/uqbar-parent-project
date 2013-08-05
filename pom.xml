@@ -73,7 +73,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 				<executions>
 					<execution>
 						<goals>
@@ -86,7 +86,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -108,7 +108,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -125,17 +125,17 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh-external</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ftp</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 			</extension>
 		</extensions>
 	</build>
@@ -145,7 +145,7 @@
 			<plugin>
 				<groupId>com.googlecode.maven-overview-plugin</groupId>
 				<artifactId>maven-overview-plugin</artifactId>
-				<version>LATEST</version>
+				<version>RELEASE</version>
 			</plugin>
 		</plugins>
 	</reporting>
