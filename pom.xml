@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.uqbar-project</groupId>
 	<artifactId>uqbar-parent-project</artifactId>
-	<version>1.8-SNAPSHOT</version>
+	<version>1.7-SNAPSHOT</version>
 	<name>uqbar-parent-project</name>
 	<url>http://www.uqbar-project.org</url>
 	<packaging>pom</packaging>
@@ -43,8 +43,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>uqbar-[0,)s</id>
-			<url>${uqbar.repo.url}/[0,)s</url>
+			<id>uqbar-[1.0.0,)s</id>
+			<url>${uqbar.repo.url}/[1.0.0,)s</url>
 		</repository>
 		<snapshotRepository>
 			<id>uqbar-snapshots</id>
@@ -54,9 +54,9 @@
 
 	<repositories>
 		<repository>
-			<id>uqbar-wiki.org-[0,)s</id>
-			<name>uqbar-wiki.org-[0,)s</name>
-			<url>http://uqbar-wiki.org/mvn/[0,)s</url>
+			<id>uqbar-wiki.org-[1.0.0,)s</id>
+			<name>uqbar-wiki.org-[1.0.0,)s</name>
+			<url>http://uqbar-wiki.org/mvn/[1.0.0,)s</url>
 		</repository>
 		<repository>
 			<snapshots />
@@ -73,6 +73,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
+				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<goals>
@@ -85,6 +86,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -106,6 +108,7 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -122,14 +125,17 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
+				<version>[1.0.0,)</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh-external</artifactId>
+				<version>[1.0.0,)</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ftp</artifactId>
+				<version>[1.0.0,)</version>
 			</extension>
 		</extensions>
 	</build>
@@ -139,6 +145,7 @@
 			<plugin>
 				<groupId>com.googlecode.maven-overview-plugin</groupId>
 				<artifactId>maven-overview-plugin</artifactId>
+				<version>[1.0.0,)</version>
 			</plugin>
 		</plugins>
 	</reporting>
