@@ -24,16 +24,16 @@
 	</properties>
 
 	<scm>
-		<connection>scm:hg:${scm.hgServer}/${artifactId}</connection>
-		<developerConnection>scm:hg:${scm.hgServer}/${artifactId}</developerConnection>
-		<url>scm:hg:${scm.hgServer}/${artifactId}</url>
+		<connection>scm:hg:${scm.hgServer}/${project.artifactId}</connection>
+		<developerConnection>scm:hg:${scm.hgServer}/${project.artifactId}</developerConnection>
+		<url>scm:hg:${scm.hgServer}/${project.artifactId}</url>
 	</scm>
 		-->
 
 	<scm>
-		<connection>scm:hg:${scm.hgServer}/${artifactId}</connection>
-		<developerConnection>scm:hg:${scm.hgServer}/${artifactId}</developerConnection>
-		<url>scm:hg:${scm.hgServer}/${artifactId}</url>
+		<connection>scm:hg:${scm.hgServer}/${project.artifactId}</connection>
+		<developerConnection>scm:hg:${scm.hgServer}/${project.artifactId}</developerConnection>
+		<url>scm:hg:${scm.hgServer}/${project.artifactId}</url>
 	</scm>
 
 	<organization>
@@ -43,8 +43,8 @@
 
 	<distributionManagement>
 		<repository>
-			<id>uqbar-[1.0.0,)s</id>
-			<url>${uqbar.repo.url}/[1.0.0,)s</url>
+			<id>uqbar-releases</id>
+			<url>${uqbar.repo.url}/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>uqbar-snapshots</id>
@@ -54,9 +54,9 @@
 
 	<repositories>
 		<repository>
-			<id>uqbar-wiki.org-[1.0.0,)s</id>
-			<name>uqbar-wiki.org-[1.0.0,)s</name>
-			<url>http://uqbar-wiki.org/mvn/[1.0.0,)s</url>
+			<id>uqbar-wiki.org-releases</id>
+			<name>uqbar-wiki.org-releases</name>
+			<url>http://uqbar-wiki.org/mvn/releases</url>
 		</repository>
 		<repository>
 			<snapshots />
@@ -73,7 +73,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
-				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<goals>
@@ -86,7 +85,6 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
-				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<id>attach-sources</id>
@@ -108,7 +106,6 @@
 				<inherited>true</inherited>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>[1.0.0,)</version>
 				<executions>
 					<execution>
 						<id>attach-javadocs</id>
@@ -125,17 +122,14 @@
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh</artifactId>
-				<version>[1.0.0,)</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ssh-external</artifactId>
-				<version>[1.0.0,)</version>
 			</extension>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
 				<artifactId>wagon-ftp</artifactId>
-				<version>[1.0.0,)</version>
 			</extension>
 		</extensions>
 	</build>
@@ -145,7 +139,6 @@
 			<plugin>
 				<groupId>com.googlecode.maven-overview-plugin</groupId>
 				<artifactId>maven-overview-plugin</artifactId>
-				<version>[1.0.0,)</version>
 			</plugin>
 		</plugins>
 	</reporting>
