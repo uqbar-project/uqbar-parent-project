@@ -50,6 +50,10 @@
 			<id>uqbar-snapshots</id>
 			<url>${uqbar.repo.url}/snapshots</url>
 		</snapshotRepository>
+		<site>
+		    <id>sites-uqbar-project.org</id>
+		    <url>ftp://uqbar-project.org/${project.artifactId}</url>
+		</site>
 	</distributionManagement>
 
 	<repositories>
