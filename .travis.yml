@@ -1,5 +1,5 @@
 language: java
-nafter_success:
+after_success:
 - mvn deploy
 before_install:
 - openssl aes-256-cbc -K $encrypted_049c3bc6eae0_key -iv $encrypted_049c3bc6eae0_iv
