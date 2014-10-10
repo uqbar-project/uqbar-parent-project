@@ -1,39 +1,25 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>org.uqbar-project</groupId>
 	<artifactId>uqbar-parent-project</artifactId>
-	<version>1.8-SNAPSHOT</version>
-	<name>uqbar-parent-project</name>
+	<version>1.9-SNAPSHOT</version>
+
+	<name>Uqbar Parent Project</name>
 	<url>http://www.uqbar-project.org</url>
 	<packaging>pom</packaging>
 
 	<properties>
 		<encoding>UTF-8</encoding>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.7</maven.compiler.source>
-		<maven.compiler.target>1.7</maven.compiler.target>
-		<uqbar.repo.url>ftp://ftp.uqbar-wiki.org</uqbar.repo.url>
-		<scm.hgServer>https://bitbucket.org/uqbar-project</scm.hgServer>
-	</properties>
-
-	<!-- TEMPLATE FOR OTHER PROJECTS
-
-	<properties>
-		<scm.svnPath>svn/uqbar/XXXX</scm.svnPath>
-		UPDATE THIS !
+		<scm.gitServer>scm:git:https://github.com/uqbar-project</scm.gitServer>
+		<scm.gitRepository>uqbar-parent-project</scm.gitRepository>
 	</properties>
 
 	<scm>
-		<connection>scm:hg:${scm.hgServer}/${project.artifactId}</connection>
-		<developerConnection>scm:hg:${scm.hgServer}/${project.artifactId}</developerConnection>
-		<url>scm:hg:${scm.hgServer}/${project.artifactId}</url>
-	</scm>
-		-->
-
-	<scm>
-		<connection>scm:hg:${scm.hgServer}/${project.artifactId}</connection>
-		<developerConnection>scm:hg:${scm.hgServer}/${project.artifactId}</developerConnection>
-		<url>scm:hg:${scm.hgServer}/${project.artifactId}</url>
+		<connection>${scm.gitServer}/${scm.gitRepository}</connection>
+		<developerConnection>${scm.gitServer}/${scm.gitRepository}</developerConnection>
+		<url>${scm.gitServer}/${scm.gitRepository}</url>
 	</scm>
 
 	<organization>
@@ -42,34 +28,34 @@
 	</organization>
 
 	<distributionManagement>
-		<repository>
-			<id>uqbar-releases</id>
-			<url>${uqbar.repo.url}/releases</url>
-		</repository>
 		<snapshotRepository>
-			<id>uqbar-snapshots</id>
-			<url>${uqbar.repo.url}/snapshots</url>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
 		<site>
-		    <id>sites-uqbar-project.org</id>
-		    <url>ftp://uqbar-project.org/${project.artifactId}</url>
+			<id>sites-uqbar-project.org</id>
+			<url>ftp://uqbar-project.org/${project.artifactId}</url>
 		</site>
 	</distributionManagement>
 
 	<repositories>
 		<repository>
-			<id>uqbar-wiki.org-releases</id>
-			<name>uqbar-wiki.org-releases</name>
-			<url>http://uqbar-wiki.org/mvn/releases</url>
+			<snapshots />
+			<id>ossrh.releases</id>
+			<name>ossrh.snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 		<repository>
 			<snapshots />
-			<id>uqbar-wiki.org-snapshots</id>
-			<name>uqbar-wiki.org-snapshots</name>
-			<url>http://uqbar-wiki.org/mvn/snapshots</url>
+			<id>ossrh.snapshots</id>
+			<name>ossrh.snapshots</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 	</repositories>
-
 
 	<build>
 		<testOutputDirectory>target/testClasses</testOutputDirectory>
@@ -122,6 +108,26 @@
 			</plugin>
 		</plugins>
 
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-source-plugin</artifactId>
+					<version>2.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-javadoc-plugin</artifactId>
+					<version>2.9.1</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
 		<extensions>
 			<extension>
 				<groupId>org.apache.maven.wagon</groupId>
@@ -143,6 +149,7 @@
 			<plugin>
 				<groupId>com.googlecode.maven-overview-plugin</groupId>
 				<artifactId>maven-overview-plugin</artifactId>
+				<version>1.6</version>
 			</plugin>
 		</plugins>
 	</reporting>
