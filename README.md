@@ -1,2 +1,2 @@
-[![Build Status](https://travis-ci.org/faloi/uqbar-parent-project-mirror.svg)](https://travis-ci.org/faloi/uqbar-parent-project-mirror)
-# uqbar-parent-project #
+[![Build Status](https://travis-ci.org/uqbar-project/uqbar-parent-project.svg)](https://travis-ci.org/uqbar-project/uqbar-parent-project)
+# uqbar-parent-project

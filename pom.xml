@@ -46,7 +46,7 @@
 		<repository>
 			<snapshots />
 			<id>ossrh.releases</id>
-			<name>ossrh.snapshots</name>
+			<name>ossrh.releases</name>
 			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
 		</repository>
 		<repository>
