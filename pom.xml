@@ -6,6 +6,7 @@
 	<version>1.9-SNAPSHOT</version>
 
 	<name>Uqbar Parent Project</name>
+	<description>Parent POM with common settings for Uqbar projects</description>
 	<url>http://www.uqbar-project.org</url>
 	<packaging>pom</packaging>
 
@@ -41,6 +42,22 @@
 			<url>ftp://uqbar-project.org/${project.artifactId}</url>
 		</site>
 	</distributionManagement>
+
+	<developers>
+		<developer><id>npasserini</id><name>Nicolás Passerini</name><email>npasserini@gmail.com</email></developer>
+		<developer><id>jfernandes</id><name>Javier Fernandes</name><email>javier.fernandes@gmail.com</email></developer>
+		<developer><id>nnydjesus</id><name>Ronny De Jesus</name><email>nnydjesus@gmail.com</email></developer>
+		<developer><id>faloi</id><name>Federico Aloi</name><email>federico.aloi@gmail.com</email></developer>
+		<developer><id>flbulgarelli</id><name>Franco Bulgarelli</name><email>flbulgarelli@yahoo.com.ar</email></developer>
+		<developer><id>tesonep</id><name>Pablo Tesone</name><email>tesonep@gmail.com</email></developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>GNU Library or Lesser General Public License (LGPL) 3.0</name>
+			<url>http://www.opensource.org/licenses/lgpl-3.0.html</url>
+		</license>
+	</licenses>
 
 	<repositories>
 		<repository>
