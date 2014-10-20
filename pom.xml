@@ -3,7 +3,7 @@
 
 	<groupId>org.uqbar-project</groupId>
 	<artifactId>uqbar-parent-project</artifactId>
-	<version>1.9-SNAPSHOT</version>
+	<version>1.9-alpha-1</version>
 
 	<name>Uqbar Parent Project</name>
 	<description>Parent POM with common settings for Uqbar projects</description>
@@ -21,7 +21,8 @@
 		<connection>${scm.gitServer}/${scm.gitRepository}</connection>
 		<developerConnection>${scm.gitServer}/${scm.gitRepository}</developerConnection>
 		<url>${scm.gitServer}/${scm.gitRepository}</url>
-	</scm>
+	  <tag>v1.9-alpha-1</tag>
+  </scm>
 
 	<organization>
 		<name>Uqbar Project</name>
