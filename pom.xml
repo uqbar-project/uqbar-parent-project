@@ -6,6 +6,7 @@
 	<version>1.9-SNAPSHOT</version>
 
 	<name>Uqbar Parent Project</name>
+	<description>Parent POM with common settings for Uqbar projects</description>
 	<url>http://www.uqbar-project.org</url>
 	<packaging>pom</packaging>
 
@@ -20,7 +21,8 @@
 		<connection>${scm.gitServer}/${scm.gitRepository}</connection>
 		<developerConnection>${scm.gitServer}/${scm.gitRepository}</developerConnection>
 		<url>${scm.gitServer}/${scm.gitRepository}</url>
-	</scm>
+	  <tag>HEAD</tag>
+  </scm>
 
 	<organization>
 		<name>Uqbar Project</name>
@@ -42,6 +44,22 @@
 		</site>
 	</distributionManagement>
 
+	<developers>
+		<developer><id>npasserini</id><name>Nicolás Passerini</name><email>npasserini@gmail.com</email></developer>
+		<developer><id>jfernandes</id><name>Javier Fernandes</name><email>javier.fernandes@gmail.com</email></developer>
+		<developer><id>nnydjesus</id><name>Ronny De Jesus</name><email>nnydjesus@gmail.com</email></developer>
+		<developer><id>faloi</id><name>Federico Aloi</name><email>federico.aloi@gmail.com</email></developer>
+		<developer><id>flbulgarelli</id><name>Franco Bulgarelli</name><email>flbulgarelli@yahoo.com.ar</email></developer>
+		<developer><id>tesonep</id><name>Pablo Tesone</name><email>tesonep@gmail.com</email></developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>GNU Library or Lesser General Public License (LGPL) 3.0</name>
+			<url>http://www.opensource.org/licenses/lgpl-3.0.html</url>
+		</license>
+	</licenses>
+
 	<repositories>
 		<repository>
 			<snapshots />
@@ -60,6 +78,16 @@
 	<build>
 		<testOutputDirectory>target/testClasses</testOutputDirectory>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<pushChanges>false</pushChanges>
+					<useReleaseProfile>false</useReleaseProfile>
+					<releaseProfiles>release</releaseProfiles>
+					<goals>deploy</goals>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
@@ -106,6 +134,16 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
 		</plugins>
 
 		<pluginManagement>
@@ -125,6 +163,21 @@
 					<artifactId>maven-javadoc-plugin</artifactId>
 					<version>2.9.1</version>
 				</plugin>
+				<plugin>
+					<groupId>org.sonatype.plugins</groupId>
+					<artifactId>nexus-staging-maven-plugin</artifactId>
+					<version>1.6.3</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-gpg-plugin</artifactId>
+					<version>1.5</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.5.1</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 
@@ -143,6 +196,41 @@
 			</extension>
 		</extensions>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>release</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-source-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>attach-sources</id>
+								<goals>
+									<goal>jar-no-fork</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 	<reporting>
 		<plugins>
