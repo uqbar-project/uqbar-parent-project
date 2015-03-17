@@ -1,2 +1,2 @@
-[![Build Status](https://travis-ci.org/uqbar-project/uqbar-parent-project.svg)](https://travis-ci.org/uqbar-project/uqbar-parent-project)
+[![Build Status](https://travis-ci.org/uqbar-project/uqbar-parent-project.svg?branch=master)](https://travis-ci.org/uqbar-project/uqbar-parent-project)
 # uqbar-parent-project
