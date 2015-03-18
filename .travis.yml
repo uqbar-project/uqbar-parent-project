@@ -1,6 +1,6 @@
 language: java
 after_success:
-- mvn deploy
+- test $TRAVIS_PULL_REQUEST == "false" && test $TRAVIS_BRANCH == "master" && mvn deploy
 before_install:
 - openssl aes-256-cbc -K $encrypted_82a7a4aaf212_key -iv $encrypted_82a7a4aaf212_iv
   -in settings.xml.enc -out settings.xml -d
