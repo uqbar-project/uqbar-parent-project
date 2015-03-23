@@ -5,6 +5,7 @@ after_success:
 before_install:
 - openssl aes-256-cbc -K $encrypted_5c75f4681da2_key -iv $encrypted_5c75f4681da2_iv
   -in travis.gpg.enc -out travis.gpg -d
+- gpg --import travis.gpg
 - openssl aes-256-cbc -K $encrypted_82a7a4aaf212_key -iv $encrypted_82a7a4aaf212_iv
   -in settings.xml.enc -out settings.xml -d
 - mv settings.xml ~/.m2/settings.xml
